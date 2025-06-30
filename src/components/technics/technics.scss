@@ -1,4 +1,8 @@
 .technics-container{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
      &__header{  
         background: linear-gradient(to right, rgba(248, 248, 248, 1), rgba(255, 255, 255, 1));
     }
@@ -12,6 +16,18 @@
             letter-spacing: -0.2px;
             color: rgba(126, 126, 130, 1);
     }
+    
+    &__slide.swiper-slide{
+        height: 160px;
+    }
+
+    &__show-all{
+        padding-left: 32px;
+        display: flex;
+        flex-direction: row;
+        gap: 17.25px;
+    }
+
 @media (max-width:767.98px){
    &__header{
         padding: 16px 16px;
@@ -26,6 +42,12 @@
         padding: 15px 0 16px 32px;
         height: 56px;
     }    
+    &__slider .swiper-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 240px);
+        gap: 16px 35px;
+        padding: 0 24px 0 24px;
+    }
 }
 @media (min-width: 768px) and (max-width: 1119px) {
     &__header{
@@ -36,3 +58,4 @@
     }
   }
 }
+

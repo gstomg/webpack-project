@@ -1,0 +1,37 @@
+.price-container{
+@media (max-width:767.98px){
+   &__header{
+        padding: 16px 16px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+    }
+}
+    
+@media (min-width:1119px){
+    &__header{
+        padding: 15px 0 16px 32px;
+        height: 56px;
+    }  
+}
+&__header{  
+        background: linear-gradient(to right, rgba(248, 248, 248, 1), rgba(255, 255, 255, 1));
+}
+@media (min-width: 768px) and (max-width: 1119px) {
+    &__header{
+        padding: 16px 0 0px 24px;
+        height: 56px;
+        display: flex;
+        align-items: center;   /* Центрирует по вертикали */
+    }
+}
+& h2{
+            font-family: 'TT Lakes';
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: -0.2px;
+            color: rgba(126, 126, 130, 1);
+    }
+}

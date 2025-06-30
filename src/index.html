@@ -8,11 +8,89 @@
     href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
+    <div class="burger-wrapper">
+        <div class="burger-wrapper__header">
+            <div class="burger-wrapper__menu">
+                <div class="burger-wrapper__menu--left">
+                    <button class="burger-wrapper__button">
+                        <img src="assets/icons/back.svg" alt="Назад" class="burger-wrapper__button--close">
+                    </button>
+                    <a href="#">
+                        <img src="assets/icons/group.svg" alt="Логотип">
+                    </a>
+                </div>    
+                <button class="burger-wrapper__button">
+                    <img src="assets/icons/search.svg" alt="Поиск">
+                </button>
+            </div>
+            <nav class="burger-wrapper__links">
+                <a href="#" class="burger-wrapper__link burger-wrapper__link--active">
+                    <img src="assets/icons/highlight-1.svg" alt="" class="burger-wrapper__highlight">
+                    Ремонт техники</a>
+                    
+                <a href="#" class="burger-wrapper__link">
+                    <img src="assets/icons/highlight-1.svg" alt="" class="burger-wrapper__highlight">    
+                    Услуги и сервисы</a>
+
+                <a href="#" class="burger-wrapper__link">
+                    <img src="assets/icons/highlight-1.svg" alt="" class="burger-wrapper__highlight">    
+                    Корпоративным клиентам</a>
+
+                <a href="#" class="burger-wrapper__link">
+                    <img src="assets/icons/highlight-1.svg" alt="" class="burger-wrapper__highlight">    
+                    Продавцам техники</a>
+
+                <a href="#" class="burger-wrapper__link">
+                    <img src="assets/icons/highlight-1.svg" alt="" class="burger-wrapper__highlight">    
+                    Партнерам</a>
+
+                <a href="#" class="burger-wrapper__link">
+                    <img src="assets/icons/highlight-1.svg" alt="" class="burger-wrapper__highlight">    
+                    Производителям</a>
+
+                <a href="#" class="burger-wrapper__link">
+                    <img src="assets/icons/highlight-1.svg" alt="" class="burger-wrapper__highlight">    
+                    Наши сервисные центры</a>
+
+                <a href="#" class="burger-wrapper__link">
+                    <img src="assets/icons/highlight-1.svg" alt="" class="burger-wrapper__highlight">    
+                    Контакты</a>
+            </nav>
+        </div>
+
+        <div class="burger-wrapper__info">
+            <div class="burger-wrapper__contact">
+                <div class="burger-wrapper__buttons">
+                    <button class="burger-wrapper__button">
+                        <img src="assets/icons/call.svg" alt="Позвонить Нам">
+                    </button>
+                    <button class="burger-wrapper__button">
+                        <img src="assets/icons/chat.svg" alt="Написать Нам">
+                    </button>
+                    <button class="burger-wrapper__button">
+                        <img src="assets/icons/profile.svg" alt="Профиль">
+                    </button>
+                </div>
+                <div class="burger-wrapper__email">
+                    <a href="mailto:mail@cps.com">mail@cps.com</a>
+                </div>
+                <div class="burger-wrapper__phone">
+                    <a href="tel:+78008908900">8 800 890 8900</a>
+                </div>
+            </div>    
+            <div class="burger-wrapper__languages">
+                <button class="burger-wrapper__lang burger-wrapper__lang--active">RU</button>
+                <button class="burger-wrapper__lang">EN</button>
+                <button class="burger-wrapper__lang">CH</button>
+            </div>
+        </div>
+    </div>
+    <div class="menu-overlay"></div>
     <header class="header">
         <nav class="header__nav">
             <div class="header__nav-left">
                 <button class="header__button">
-                    <img src="assets/icons/burger.svg" alt="Открыть меню">
+                    <img src="assets/icons/burger.svg" alt="Открыть меню" class="burger-btn">
                 </button>
 
                 <img src="assets/icons/devider.svg" alt="" class="header__divider-hiddenmobile">
@@ -191,13 +269,120 @@
                     Показать все</button>
             </div>
         </div>
+
         <div class="technics-container">
             <div class="technics-container__header">
                     <h2 class="technics-container__title">Ремонты различных видов техники</h2>
             </div>
-            
+             <div class="technics-container__slider swiper">
+                <div class="technics-container__wrapper swiper-wrapper">
+                            <div class="technics-container__slide swiper-slide">
+                                <p>Ремонт ноутбуков</p>
+                                <button class="brands-container__action">
+                                    <img src="assets/icons/go.svg" alt="Перейти к Lenovo">
+                                </button>
+                            </div>
+
+                            <div class="technics-container__slide swiper-slide">
+                                <p>Ремонт планшетов</p>
+                                <button class="brands-container__action">
+                                    <img src="assets/icons/go.svg" alt="Перейти к Samsung">
+                                </button>
+                            </div>
+
+                            <div class="technics-container__slide swiper-slide">
+                                <p>Ремонт ПК</p>
+                                <button class="brands-container__action">
+                                    <img src="assets/icons/go.svg" alt="Перейти к Apple">
+                                </button>
+                            </div>
+
+                            <div class="technics-container__slide swiper-slide">
+                                <p>Ремонт мониторов</p>
+                                <button class="brands-container__action">
+                                    <img src="assets/icons/go.svg" alt="Перейти к Viewsonic">
+                                </button>
+                            </div>
+
+                            <div class="technics-container__slide swiper-slide">
+                               <p>Ремонт телефонов</p>
+                                <button class="brands-container__action">
+                                    <img src="assets/icons/go.svg" alt="Перейти к Bosch">
+                                </button>
+                            </div>
+
+                            <div class="technics-container__slide swiper-slide">
+                                <p>Ремонт телевизоров</p>
+                                <button class="brands-container__action">
+                                    <img src="assets/icons/go.svg" alt="Перейти к HP">
+                                </button>
+                            </div>
+
+                            <div class="technics-container__slide swiper-slide">
+                                <p>Ремонт принтеров</p>
+                                <button class="brands-container__action">
+                                    <img src="assets/icons/go.svg" alt="Перейти к Acer">
+                                </button>
+                            </div>
+
+                            <div class="technics-container__slide swiper-slide">
+                                <p>Ремонт пылесосов</p>
+                                <button class="brands-container__action">
+                                    <img src="assets/icons/go.svg" alt="Перейти к Sony">
+                                </button>
+                            </div>
+
+                            <div class="technics-container__slide swiper-slide">
+                                <p>Ремонт наушников</p>
+                                <button class="brands-container__action">
+                                    <img src="assets/icons/go.svg" alt="Перейти к Lenovo">
+                                </button>
+                            </div>
+
+                            <div class="technics-container__slide swiper-slide">
+                                <p>Ремонт игровых приставок</p>
+                                <button class="brands-container__action">
+                                    <img src="assets/icons/go.svg" alt="Перейти к Samsung">
+                                </button>
+                            </div>
+                </div>
+                <div class="technics-container__pagination swiper-pagination"></div>  
+            </div> 
+            <div class="technics-container__show-all">
+                <img class="technics-container__show-all-icon" src="assets/icons/icon.svg" alt="">
+                <button type="button" class="technics-container__show-all-btn">
+                    Показать все</button>
+            </div>
+        </div>
+
+        <div class="price-container">
+            <div class="price-container__header">
+                    <h2 class="price-container__title">Цены на услуги</h2>
+            </div>
+            <div class="sw">
+
+            </div>
+            <div>
+                <p>
+                    Все цены указаны с учетом НДС. 
+                    Стоимость ремонта указана на единичную услугу. 
+                    Для получения коммерческого предложения на 
+                    постоянное обслуживание, оставьте заявку.
+                </p>
+                <div>
+                    <a>
+                        Получить коммерческое предложение
+                        <img src="./assets/icons/line.svg" alt="">
+                    </a>
+                </div>
+            </div>
         </div>
     </main>
+    <footer>
+        <div class="footer-container">
+            
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </body>
 </html>

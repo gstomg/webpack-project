@@ -133,3 +133,51 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('resize', updateVisibility);
   updateVisibility();
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const burgerBtn = document.querySelector('.burger-btn'); // Кнопка открытия меню
+    const burgerMenu = document.querySelector('.burger-wrapper'); // Само меню
+    const closeBtn = document.querySelector('.burger-wrapper__button--close'); // Кнопка закрытия меню
+    const menuOverlay = document.querySelector('.menu-overlay'); // Overlay для блюра
+
+    // Открыть меню (только на планшете/мобилке)
+    function openMenu() {
+        if (window.innerWidth < 1120) {
+            burgerMenu.classList.add('active');
+            if (menuOverlay) menuOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    // Закрыть меню (только на планшете/мобилке)
+    function closeMenu() {
+        if (window.innerWidth < 1120) {
+            burgerMenu.classList.remove('active');
+            if (menuOverlay) menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    // Открытие по бургеру
+    if (burgerBtn) burgerBtn.addEventListener('click', openMenu);
+
+    // Закрытие по кнопке "Назад"/крестику
+    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+
+    // Закрытие по overlay
+    if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+
+    // Закрытие по ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeMenu();
+    });
+
+    // При ресайзе: если десктоп — меню всегда открыто, overlay скрыт, скролл разрешён
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 1120) {
+            burgerMenu.classList.remove('active');
+            if (menuOverlay) menuOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});

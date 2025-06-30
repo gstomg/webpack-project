@@ -1,0 +1,242 @@
+.burger-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: 100vh;
+    box-shadow: 16px 0px 52px rgba(14, 24, 80, 0.2);
+    padding: 18.73px 0 24px;
+    gap: 32px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto;
+    z-index: 1001;
+    justify-content: space-between;
+    background: #fff;
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+
+// --- Активное меню (открыто на планшете/мобилке) ---
+.burger-wrapper.active {
+    transform: translateX(0);
+}
+
+// --- Overlay для блюра фона ---
+.menu-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 1);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s;
+    z-index: 1000;
+}
+.menu-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+// --- Кнопка закрытия меню ---
+.burger-wrapper__button--close {
+    display: block;
+    top: 18px;
+    right: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+// --- Десктоп: меню всегда видно, overlay и кнопка закрытия скрыты, контент сдвинут ---
+@media (min-width: 1120px) {
+    .burger-wrapper {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 320px;
+        height: 100vh;
+        transform: none !important;
+        box-shadow: 16px 0px 52px rgba(14, 24, 80, 0.2);
+        z-index: 1001;
+    }
+    .menu-overlay {
+        display: none !important;
+    }
+    .burger-wrapper__button--close {
+        display: none !important;
+    }
+    .main, .content, .page-content { // подставь свой класс основного контента!
+        margin-left: 320px;
+    }
+}
+
+// --- Планшет и мобилка: меню скрыто, overlay и кнопка закрытия видны, контент не сдвинут ---
+@media (max-width: 1119px) {
+    .burger-wrapper {
+        position: fixed;
+        left: 0;
+        top: 0;
+        transform: translateX(-100%);
+        transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+        z-index: 1001;
+        
+    }
+    .burger-wrapper.active {
+        transform: translateX(0);
+    }
+    .main, .content, .page-content {
+        margin-left: 0;
+    }
+    .burger-wrapper__button--close {
+        display: block;
+    }
+    .menu-overlay {
+        display: block;
+    }
+    
+}
+
+.burger-wrapper__menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px 0 24px;
+}
+
+.burger-wrapper__links a{
+    font-family: 'TT Lakes';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+   
+}
+
+.burger-wrapper__links a:hover{
+    color: rgba(126, 126, 130, 1);
+}
+
+.burger-wrapper__menu--left{
+    display: flex;
+    flex-direction: row;
+    gap: 16.73px;
+}
+
+.burger-wrapper__header{
+    display: flex;
+    flex-direction: column;
+    gap: 46.27px;;
+}
+
+.burger-wrapper__links{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin: 0;
+    padding: 0;
+
+}
+/**/
+.burger-wrapper__links a {
+    position: relative; /* для позиционирования полоски */
+    padding-left: 24px; /* отступ для полоски */
+}
+
+/* полоска (изначально скрыта у всех, кроме первого элемента) */
+.burger-wrapper__highlight {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0; /* По умолчанию скрыта */
+    transition: opacity 0.3s ease;
+}
+
+/* у первого элемента полоска всегда видна */
+.burger-wrapper__links a:first-child .burger-wrapper__highlight {
+    opacity: 1;
+}
+
+/* при наведении на любой элемент (кроме первого) показываем полоску */
+.burger-wrapper__links a:not(:first-child):hover .burger-wrapper__highlight {
+    opacity: 1;
+}
+
+
+.burger-wrapper__buttons{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+.burger-wrapper__button img{
+    transition: transform 0.3s ease;
+}
+.burger-wrapper__button img:hover{
+    transform: scale(1.1);
+    opacity: 0.7;
+}
+
+.burger-wrapper__info{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-left: 24px;
+}
+.burger-wrapper__contact{
+    display: flex;
+    flex-direction: column;
+}
+.burger-wrapper__buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.burger-wrapper__email {
+    padding-top: 16px;
+    font-family: 'TT Lakes';
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.burger-wrapper__phone{
+    padding-top: 12px;
+    font-family: 'TT Lakes';
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.6px;
+}
+
+.burger-wrapper__languages button{
+    font-family: 'TT Lakes';
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.2px;
+    font-size: 16px;
+}
+
+.burger-wrapper__lang.burger-wrapper__lang--active {
+    color: rgba(126, 126, 130, 1);
+}
+.burger-wrapper__link.burger-wrapper__link--active {
+    color: rgba(126, 126, 130, 1);
+}
+
+@media (min-width: 1120px) {
+    .burger-wrapper {
+        overflow-y: auto;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE 10+ */
+    }
+    .burger-wrapper::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+}
