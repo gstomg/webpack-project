@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Доп сброс для списков и ссылок*/
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* сброс отступов для заголовков и параграфов */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Сброс стандартных стилей для кнопок и input */
+button, input, textarea, select {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: inherit;
+}

@@ -1,0 +1,55 @@
+@import "./reset.scss";
+@import "./_fonts";
+@import "../components/brands/brands.scss";
+@import "../components/header/header.scss";
+@import "../components/service/service.scss";
+@import "../components/about/about.scss";
+@import "../components/technics/technics.scss";
+
+/*-----Base styles -----*/
+
+$main-bg: #F8F8F8;
+$main-font: 'TT Lakes';
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    background: $main-bg;
+    font-family: $main-font;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    gap:24px;
+}
+
+h1{
+    font-size: 28px;
+    letter-spacing: -0.6px;
+    line-height: 40px;
+}
+
+
+
+@media (max-width:767.98px){
+    body{
+        gap: 24px;
+}
+}
+
+@media (min-width: 768px) and (max-width: 1119px){
+    .main{
+        gap:32px;
+}
+    body{
+        gap: 24px;
+}
+}
+
+@media (min-width:1119px){
+    .main{
+        padding-top: 42px;
+}
+}

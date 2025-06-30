@@ -1,0 +1,101 @@
+/*-----Service section -----*/
+
+$service-gap-mobile: 24px;
+$service-gap-tablet: 32px;
+
+.service{
+    display: flex;
+    flex-direction: column;
+    gap: $service-gap-mobile;
+
+    &__menu{
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        padding-left: 16px;
+        font-family: 'TT Lakes';
+        font-weight: 500;
+        letter-spacing: -0.2px;
+        line-height: 24px;
+        font-size: 16px;
+        color:#7E7E82;
+        cursor: pointer;
+    }
+    &__menu-point.service__menu-point--active{
+        background: white;
+        border: 2px solid;
+        border-color: #B8FFEC;
+    }
+    &__menu::-webkit-scrollbar{
+        display: none;
+    }
+    &__menu-point {
+        display: inline-block;
+        height: 40px;
+        border-radius: 6px;
+        padding: 8px 16px;
+    }
+    &__header-title{
+        width: 4px;
+        border-radius: 0px 4px 4px 0px;
+        background-color: #41F6D7;
+    }
+    &__header-text{
+        width: 300px;
+        padding-left: 12px;
+    }
+@media (max-width:767.98px){
+    &__action{
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1119px){
+    &__action{
+        display: none;
+    }
+    & {
+        gap: $service-gap-tablet;
+    }
+    &__menu{
+        padding-left: 24px;
+    }
+    &__header-text{
+        padding-left: 20px;
+    }
+}
+
+@media (min-width:1119px){
+    &__header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 40px;
+    }
+    &__header-text{
+        padding-left: 32px;
+    }
+    &__action{
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+        padding-right: 32px;
+    }
+    &__action button{
+        font-family: 'TT Lakes';
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.2px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap:8px;
+    }
+    &__menu{
+        padding-left: 32px;
+        flex-wrap: wrap; 
+        white-space: normal;
+    }
+  }
+}

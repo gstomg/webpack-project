@@ -1,0 +1,214 @@
+/*-----Swiper-wrapper -----*/
+
+.swiper {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+        &-slide {
+            width: auto;
+            height: 72px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #EAEAEA;
+            border-radius: 6px;
+            padding: 0 16px;
+        }
+        &-pagination{
+            position: relative;
+            margin-top: 16px;
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+                &-bullet{
+                    background-color: #B5B6BC;
+                    height: 12px;
+                    width: 12px;
+                }
+        }
+}
+
+.brands-container{
+    display: flex;
+    flex-direction: column;
+
+    &__header{  
+        background: linear-gradient(to right, rgba(248, 248, 248, 1), rgba(255, 255, 255, 1));
+        
+        & h2{
+            font-family: 'TT Lakes';
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 16px;
+            line-height: 24px;
+            letter-spacing: -0.2px;
+            color: rgba(126, 126, 130, 1);
+        }
+    }
+    &__show-all-btn:hover, .brands-container__show-all-btn:focus {
+        color: #7E7E82;
+    }
+
+
+@media (max-width:767.98px){
+   &__header{
+        padding: 16px 16px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__slider .swiper-slide:nth-child(n+9) {
+        display: none;
+    }
+    & {
+        gap: 16px;
+    }
+
+    &__show-all {
+        display: none;
+    }
+    &__slider {
+        position: relative;
+        overflow: hidden;
+    }
+
+    &__slider::after {/* градиент на свайпере */
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 24px;      
+        height: 100%;
+        pointer-events: none; /* чтобы не мешать кликам */
+        background: linear-gradient(to left, rgba(248, 248, 248, 1), rgba(248, 248, 248, 0));
+        z-index: 10;
+    }
+    &__slider &__slide, 
+    &__slider .swiper-slide {
+        width: 240px;
+        min-width: 240px;
+        max-width: 240px;
+        height: 72px;
+        display: flex;
+    }
+  }
+
+@media (min-width: 768px) and (max-width: 1119px) {
+    .swiper-pagination {
+        display: none;
+    }
+    &__header{
+        padding: 16px 0 0px 24px;
+        height: 56px;
+        display: flex;
+        align-items: center;   /* Центрирует по вертикали */
+    }
+    &__slider{
+        overflow: visible ;
+        padding: 0px 24px;
+    }
+    &__slider .swiper-slide{
+        width: auto;
+        min-width: 0;
+        height: 72px;
+        margin-right: 0!important;
+    }
+    &__slider .swiper-slide:nth-child(4),
+    &__slider .swiper-slide:nth-child(8), &__slider .swiper-slide:nth-child(n+9) {
+        display: none;
+    }
+    & {
+        gap: 24px;
+    }
+    &__show-all{
+        padding-left: 32px;
+        display: flex;
+        flex-direction: row;
+        gap: 17.25px;
+    }
+
+    &__slider .swiper-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 224px);
+        gap: 16px 24px;
+        grid-auto-rows: 72px;
+    
+    }
+    /* Скрываем 4 и 8 слайды по умолчанию */
+    &__slider .swiper-slide:nth-child(4),
+    &__slider .swiper-slide:nth-child(8) {
+        display: none;
+    }
+    /* Показываем их при активации show-extra */
+    &__slider.show-extra .swiper-slide:nth-child(4),
+    &__slider.show-extra .swiper-slide:nth-child(8) {
+        display: flex;
+    }
+    /* Скрываем 9, 10, 11 слайды всегда */
+    &__slider .swiper-slide:nth-child(n+9) {
+        display: none;
+    }
+  }
+
+@media (min-width:1119px){
+    &__header{
+        padding: 15px 0 16px 32px;
+        height: 56px;
+    }
+    &__slider {
+        overflow: visible ;
+        padding: 0px 33px;
+    }
+    &__slider .swiper-wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 240px);
+        gap: 16px 35px;
+    }
+    &__slider .swiper-slide {
+        width: auto;
+        min-width: 0;
+        height: 72px;
+    }
+    .swiper-pagination {
+        display: none;
+    }
+   & {
+        gap: 24px;
+    }
+    &__show-all{
+        padding-left: 32px;
+        display: flex;
+        flex-direction: row;
+        gap: 17.25px;
+    }
+    &__slider .swiper-slide:nth-child(n+9) {
+        display: none;
+    }
+    &__slider .swiper-slide.show {
+        display: flex;
+    }
+    /* показываем только 1-8 слайды по умолчанию */
+    &__slider .swiper-slide:nth-child(n+9) {
+        display: none;
+    }
+    /* показываем 9, 10, 11 при активации show-extra */
+    &__slider.show-extra .swiper-slide:nth-child(n+9) {
+        display: flex;
+    }
+    &__slider &__slide,
+    &__slider .swiper-slide {
+        width: 240px;
+        min-width: 240px;
+        max-width: 240px;
+        height: 72px;
+        display: flex;
+    }
+  }
+}
