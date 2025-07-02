@@ -34,11 +34,45 @@ function initSwiper() {
   }
 }
 
+// === Swiper для technics-container ===
+let technicsSwiperInstance = null;
+
+function initTechnicsSwiper() {
+  if (window.innerWidth < 768 && !technicsSwiperInstance) {
+    technicsSwiperInstance = new Swiper('.technics-container__slider', {
+      slidesPerView: 'auto',
+      spaceBetween: 14,
+      slidesOffsetBefore: 16,
+      pagination: {
+        el: '.technics-container__pagination',
+        clickable: true,
+      },
+      a11y: { clicked: true },
+    });
+  } else if (window.innerWidth >= 768 && technicsSwiperInstance) {
+    technicsSwiperInstance.destroy(true, true);
+    technicsSwiperInstance = null;
+    // Сбросить стили, которые Swiper мог добавить
+    const wrapper = document.querySelector('.technics-container__wrapper');
+    if (wrapper) {
+      wrapper.style.transform = '';
+      wrapper.style.transition = '';
+    }
+    document.querySelectorAll('.technics-container__slide').forEach(slide => {
+      slide.style.transform = '';
+      slide.style.transition = '';
+    });
+  }
+}
+
 // Инициализация при загрузке
 window.addEventListener('load', initSwiper);
 // И при изменении размера окна
 window.addEventListener('resize', initSwiper);
 
+// === Swiper для technics-container ===
+window.addEventListener('load', initTechnicsSwiper);
+window.addEventListener('resize', initTechnicsSwiper);
 
 document.addEventListener('DOMContentLoaded', function() {
   const btn = document.querySelector('.brands-container__show-all-btn');
@@ -69,8 +103,6 @@ document.addEventListener('DOMContentLoaded', function() {
     updateButton();
   });
 });
-
-
 
 //about кнопка читать далее
 
@@ -181,3 +213,38 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+
+let priceSwiperInstance = null;
+
+function initPriceSwiper() {
+  if (window.innerWidth < 768 && !priceSwiperInstance) {
+    priceSwiperInstance = new Swiper('.price-container__table', {
+      slidesPerView: 'auto',
+      spaceBetween: 14,
+      slidesOffsetBefore: 16,
+      pagination: {
+        el: '.price-container__pagination',
+        clickable: true,
+      },
+      a11y: { clicked: true },
+    });
+  } else if (window.innerWidth >= 768 && priceSwiperInstance) {
+    priceSwiperInstance.destroy(true, true);
+    priceSwiperInstance = null;
+
+    // Сбросить стили, которые Swiper мог добавить
+    const wrapper = document.querySelector('.price-container__wrapper');
+    if (wrapper) {
+      wrapper.style.transform = '';
+      wrapper.style.transition = '';
+    }
+    document.querySelectorAll('.price-container__slide').forEach(slide => {
+      slide.style.transform = '';
+      slide.style.transition = '';
+    });
+  }
+}
+
+window.addEventListener('load', initPriceSwiper);
+window.addEventListener('resize', initPriceSwiper);

@@ -19,6 +19,8 @@
     
     &__slide.swiper-slide{
         height: 160px;
+        padding: 16px;
+        min-width: 240px;
     }
 
     &__show-all{
@@ -28,12 +30,40 @@
         gap: 17.25px;
     }
 
+    &__type{
+        display: flex;
+        align-self: flex-start;
+        font-weight: 500;
+    }
+    &__action{
+        margin-top: auto;
+        align-self: flex-end;
+    }
+
 @media (max-width:767.98px){
    &__header{
         padding: 16px 16px;
         height: 80px;
         display: flex;
         align-items: center;
+    }
+    &__show-all {
+        display: none;
+    }
+    &__slider {
+        position: relative;
+        overflow: hidden;
+    }
+    &__slider::after { /* градиент справа на свайпере */
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 24px;
+        height: 100%;
+        pointer-events: none;
+        background: linear-gradient(to left, rgba(248, 248, 248, 1), rgba(248, 248, 248, 0));
+        z-index: 10;
     }
 }
     
@@ -58,4 +88,9 @@
     }
   }
 }
+
+
+
+
+
 

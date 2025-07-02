@@ -3,7 +3,6 @@
     flex-direction: column;
     width: 320px;
     height: 100vh;
-    box-shadow: 16px 0px 52px rgba(14, 24, 80, 0.2);
     padding: 18.73px 0 24px;
     gap: 32px;
     position: fixed;
@@ -58,7 +57,6 @@
         width: 320px;
         height: 100vh;
         transform: none !important;
-        box-shadow: 16px 0px 52px rgba(14, 24, 80, 0.2);
         z-index: 1001;
     }
     .menu-overlay {
@@ -85,6 +83,7 @@
     }
     .burger-wrapper.active {
         transform: translateX(0);
+        box-shadow: 16px 0px 52px rgba(14, 24, 80, 0.2);
     }
     .main, .content, .page-content {
         margin-left: 0;

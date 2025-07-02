@@ -1,4 +1,38 @@
+
+
 .price-container{
+    & {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+    &__offer-link{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.2px;
+        display: block;
+        max-width: 200px;
+    }
+
+    &__info{
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    &__offer-icon{
+        padding-left: 9px;
+    }
+
+    &__desc{
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.2px;
+        padding-right: 5px;
+    }
+    
 @media (max-width:767.98px){
    &__header{
         padding: 16px 16px;
@@ -6,15 +40,59 @@
         display: flex;
         align-items: center;
     }
+    &__info{
+        padding-left: 16px;
+    }
+
+    &__slide.swiper-slide{
+        min-height: 200px;
+        width: 260px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    &__title{
+        color: rgba(126, 126, 130, 1);
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 0px;
+    }
+    &__order{
+        border-radius: 16px;
+        color: white;
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+        background-color: rgba(255, 62, 121, 1);
+        width: 119px;
+        align-items: center;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 24px;
+        letter-spacing: -0.15px;
+        text-transform: uppercase;
+        height: 32px;
+        display: flex;
+        gap: 17px;
+        padding-left: 12px;
+    }
 }
     
 @media (min-width:1119px){
-    &__header{
-        padding: 15px 0 16px 32px;
-        height: 56px;
-    }  
+    &__desc{
+        max-height: 100px;
+        max-width: 445px;
+    }
+    &__info{
+        padding-left: 32px;
+    } 
 }
 &__header{  
+        height: 56px;
         background: linear-gradient(to right, rgba(248, 248, 248, 1), rgba(255, 255, 255, 1));
 }
 @media (min-width: 768px) and (max-width: 1119px) {
