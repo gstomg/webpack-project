@@ -2,6 +2,7 @@ import '../../node_modules/focus-visible/dist/focus-visible';
 import '../index.html';
 import "../styles/main.scss";
 import "../components/brands/brands.scss";
+import "../components/modal-phone/modalphone.scss";
 
 let swiperInstance = null;
 
@@ -322,4 +323,30 @@ document.addEventListener('DOMContentLoaded', function() {
   } else if (technicsBtn) {
     technicsBtn.style.display = 'none';
   }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const openModalBtns = document.querySelectorAll('.call-btn');
+  const modal = document.getElementById('modal-callback');
+  const overlay = document.querySelector('.modal-phone__overlay');
+  const closeModalBtns = document.querySelectorAll('.modal-phone__close-btn');
+
+  function openModal() {
+    modal.classList.add('active');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  openModalBtns.forEach(btn => btn.addEventListener('click', openModal));
+  closeModalBtns.forEach(btn => btn.addEventListener('click', closeModal));
+  if (overlay) overlay.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
 });

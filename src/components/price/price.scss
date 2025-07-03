@@ -48,7 +48,7 @@
         padding-left: 16px;
         gap: 16px;
     }
-
+    
     &__slide.swiper-slide{
         min-height: 200px;
         width: 260px;
@@ -97,6 +97,25 @@
     .footer__dev {
         width: auto;
     }
+    .price-container__slider {
+        position: relative;
+        overflow: hidden;
+    }
+    .price-container__table {
+        position: relative;
+        overflow: hidden;
+    }
+    .price-container__table::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 24px;
+        height: 100%;
+        pointer-events: none;
+        background: linear-gradient(to left, rgba(248, 248, 248, 1), rgba(248, 248, 248, 0));
+        z-index: 10;
+    }
 }
     
 @media (min-width:1119px){
@@ -125,6 +144,16 @@
         display: flex;
         align-items: center;   /* Центрирует по вертикали */
     }
+    
+    &__desc{
+        width: 445px;
+    }
+    &__table{
+        padding: 0 24px;
+    }
+    &__title{
+        padding-left: 24px;
+    }
 }
     & h2{
         font-family: 'TT Lakes';
@@ -135,17 +164,10 @@
         letter-spacing: -0.2px;
         color: rgba(126, 126, 130, 1);
     }
-    &__title{
-        padding-left: 24px;
-    }
-    &__table{
-        padding: 0 24px;
-    }
+    
+    
     &__info{
         padding: 0 24px;
-    }
-    &__desc{
-        width: 445px;
     }
     &__offer-link{
         display: inline;
