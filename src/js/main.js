@@ -267,15 +267,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function updateTechnicsVisibility() {
     const width = window.innerWidth;
-    if (width >= 768) {
+    if (width >= 767) {
       technicsSlides.forEach((slide, idx) => {
-        if (!technicsExpanded && idx >= 4) {
+        if (!technicsExpanded && idx >= 3) {
           slide.style.display = 'none';
         } else {
           slide.style.display = '';
         }
       });
-      if (technicsBtn) technicsBtn.style.display = technicsSlides.length > 4 ? '' : 'none';
+      if (technicsBtn) technicsBtn.style.display = technicsSlides.length > 3 ? '' : 'none';
     } else {
       technicsSlides.forEach(slide => {
         slide.style.display = '';

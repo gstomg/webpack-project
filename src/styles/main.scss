@@ -14,10 +14,12 @@
 $main-bg: #F8F8F8;
 $main-font: 'TT Lakes';
 
+html, body, .layout {
+  height: 100vh;
+  min-height: 100vh;
+}
 
 body{
-    display: flex;
-    flex-direction: column;
     background: $main-bg;
     font-family: $main-font;
 }
@@ -40,6 +42,9 @@ h1{
     body{
         gap: 16px;
 }
+    .main{
+        padding-top: 24px;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 1119px){
@@ -55,4 +60,40 @@ h1{
     .main{
         padding-top: 42px;
 }
+}
+
+@media (min-width: 1120px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    height: 100vh;
+  }
+  .burger-wrapper {
+    position: relative;
+    width: 320px;
+    min-height: 100%;
+    height: 100vh;
+    background: #fff;
+    z-index: 1001;
+    overflow-y: auto;
+  }
+  .main {
+    width: 100%;
+    padding-top: 42px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 1119px) {
+  .layout {
+    display: block;
+  }
+  .burger-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  .main {
+    width: 100%;
+  }
 }
