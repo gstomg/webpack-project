@@ -252,7 +252,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const technicsBtn = document.querySelector('.technics-container__show-all-btn');
   const technicsIcon = document.querySelector('.technics-container__show-all-icon');
   const technicsSlider = document.querySelector('.technics-container__slider');
-  const technicsSlides = document.querySelectorAll('.technics-container__slide');
   let technicsExpanded = false;
 
   function updateTechnicsButton() {
@@ -267,20 +266,40 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function updateTechnicsVisibility() {
     const width = window.innerWidth;
-    if (width >= 767) {
-      technicsSlides.forEach((slide, idx) => {
-        if (!technicsExpanded && idx >= 3) {
-          slide.style.display = 'none';
+    let visibleCount = 3;
+    if (width >= 1120) {
+      visibleCount = 4;
+    } else if (width >= 768) {
+      visibleCount = 3;
+    }
+    if (width >= 768) {
+      if (technicsSlider) {
+        if (technicsExpanded) {
+          technicsSlider.classList.add('show-extra');
         } else {
-          slide.style.display = '';
+          technicsSlider.classList.remove('show-extra');
         }
-      });
-      if (technicsBtn) technicsBtn.style.display = technicsSlides.length > 3 ? '' : 'none';
+        // Скрываем лишние слайды вручную для desktop (>=1120px) и tablet (>=768px)
+        const slides = technicsSlider.querySelectorAll('.technics-container__slide');
+        slides.forEach((slide, idx) => {
+          if (!technicsExpanded && idx >= visibleCount) {
+            slide.style.display = 'none';
+          } else {
+            slide.style.display = '';
+          }
+        });
+        if (technicsBtn) technicsBtn.style.display = slides.length > visibleCount ? '' : 'none';
+      }
     } else {
-      technicsSlides.forEach(slide => {
-        slide.style.display = '';
-      });
-      if (technicsBtn) technicsBtn.style.display = '';
+      // На мобильных: всегда показываем все, кнопку скрываем
+      if (technicsSlider) {
+        technicsSlider.classList.remove('show-extra');
+        const slides = technicsSlider.querySelectorAll('.technics-container__slide');
+        slides.forEach(slide => {
+          slide.style.display = '';
+        });
+      }
+      if (technicsBtn) technicsBtn.style.display = 'none';
     }
   }
 
@@ -297,7 +316,10 @@ document.addEventListener('DOMContentLoaded', function() {
       updateTechnicsVisibility();
     });
 
+    // Инициализация
     updateTechnicsButton();
     updateTechnicsVisibility();
+  } else if (technicsBtn) {
+    technicsBtn.style.display = 'none';
   }
 });
