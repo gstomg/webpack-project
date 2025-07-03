@@ -252,6 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const technicsBtn = document.querySelector('.technics-container__show-all-btn');
   const technicsIcon = document.querySelector('.technics-container__show-all-icon');
   const technicsSlider = document.querySelector('.technics-container__slider');
+  const technicsSlides = document.querySelectorAll('.technics-container__slide');
   let technicsExpanded = false;
 
   function updateTechnicsButton() {
@@ -264,21 +265,39 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
+  function updateTechnicsVisibility() {
+    const width = window.innerWidth;
+    if (width >= 768) {
+      technicsSlides.forEach((slide, idx) => {
+        if (!technicsExpanded && idx >= 4) {
+          slide.style.display = 'none';
+        } else {
+          slide.style.display = '';
+        }
+      });
+      if (technicsBtn) technicsBtn.style.display = technicsSlides.length > 4 ? '' : 'none';
+    } else {
+      technicsSlides.forEach(slide => {
+        slide.style.display = '';
+      });
+      if (technicsBtn) technicsBtn.style.display = '';
+    }
+  }
+
   if (technicsBtn && technicsSlider) {
     technicsBtn.addEventListener('click', function() {
       technicsExpanded = !technicsExpanded;
-      if (technicsExpanded) {
-        technicsSlider.classList.add('show-extra');
-      } else {
-        technicsSlider.classList.remove('show-extra');
-      }
       updateTechnicsButton();
+      updateTechnicsVisibility();
     });
 
     window.addEventListener('resize', function() {
       technicsExpanded = false;
-      technicsSlider.classList.remove('show-extra');
       updateTechnicsButton();
+      updateTechnicsVisibility();
     });
+
+    updateTechnicsButton();
+    updateTechnicsVisibility();
   }
 });

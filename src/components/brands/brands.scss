@@ -219,3 +219,12 @@
     }
   }
 }
+
+@media (min-width:1440px){
+    .brands-container__slider{
+        padding: 0px 32px;
+    }
+    .brands-container__slider .swiper-wrapper{
+        gap: 16px 32px;
+    }
+  }

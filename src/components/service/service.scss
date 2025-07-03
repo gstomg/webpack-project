@@ -79,7 +79,7 @@ $service-gap-tablet: 32px;
         display: flex;
         flex-direction: row;
         gap: 32px;
-        padding-right: 32px;
+        padding-right: 30px;
     }
     &__action button{
         font-family: 'TT Lakes';
@@ -98,4 +98,5 @@ $service-gap-tablet: 32px;
         white-space: normal;
     }
   }
+
 }
