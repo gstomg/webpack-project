@@ -103,13 +103,16 @@
         align-items: center;   /* Центрирует по вертикали */
     }
 }
-& h2{
-            font-family: 'TT Lakes';
-            font-weight: 400;
-            text-transform: uppercase;
-            font-size: 16px;
-            line-height: 24px;
-            letter-spacing: -0.2px;
-            color: rgba(126, 126, 130, 1);
+    & h2{
+        font-family: 'TT Lakes';
+        font-weight: 400;
+        text-transform: uppercase;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.2px;
+        color: rgba(126, 126, 130, 1);
+    }
+    &__info{
+        padding: 24px;
     }
 }

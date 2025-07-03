@@ -7,6 +7,13 @@
         background: linear-gradient(to right, rgba(248, 248, 248, 1), rgba(255, 255, 255, 1));
     }
 
+    &__show-all-btn{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.2px;
+    }
+
     & h2{
             font-family: 'TT Lakes';
             font-weight: 400;
@@ -65,6 +72,7 @@
         background: linear-gradient(to left, rgba(248, 248, 248, 1), rgba(248, 248, 248, 0));
         z-index: 10;
     }
+
 }
     
 @media (min-width:1119px){
@@ -76,21 +84,65 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, 240px);
         gap: 16px 35px;
-        padding: 0 24px 0 24px;
+        padding: 0 24px;
+        box-sizing: border-box;
     }
+
+    &__slider {
+        overflow: visible;
+    }
+    
 }
 @media (min-width: 768px) and (max-width: 1119px) {
+    .swiper-pagination {
+    display: none;
+}
     &__header{
         padding: 16px 0 0px 24px;
         height: 56px;
         display: flex;
         align-items: center;   /* Центрирует по вертикали */
     }
+    &__slider .swiper-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px 24px;
+        padding: 0 24px;
+        box-sizing: border-box;
+    }
+    &__slider .swiper-slide {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.3s, transform 0.3s;
+    }
+    &__slider .swiper-slide:nth-child(n+4) {
+        display: none;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    &__slider.show-extra .swiper-slide {
+        display: flex;
+        opacity: 1;
+        transform: translateY(0);
+    }
+    &__wrapper.swiper-slide{
+        width: auto;
+    }
+    .technics-container__slide {
+        min-width: 0;
+        width: 100%;
+    }
+}
+@media (min-width: 768px) and (max-width: 1119px) {
+    .technics-container__slider .swiper-slide:nth-child(n+4) {
+      display: none;
+    }
+    .technics-container__slider.show-extra .swiper-slide {
+      display: flex;
+    }
   }
 }
-
-
-
 
 
 

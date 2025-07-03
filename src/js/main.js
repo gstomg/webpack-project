@@ -34,7 +34,6 @@ function initSwiper() {
   }
 }
 
-// === Swiper для technics-container ===
 let technicsSwiperInstance = null;
 
 function initTechnicsSwiper() {
@@ -52,7 +51,6 @@ function initTechnicsSwiper() {
   } else if (window.innerWidth >= 768 && technicsSwiperInstance) {
     technicsSwiperInstance.destroy(true, true);
     technicsSwiperInstance = null;
-    // Сбросить стили, которые Swiper мог добавить
     const wrapper = document.querySelector('.technics-container__wrapper');
     if (wrapper) {
       wrapper.style.transform = '';
@@ -65,6 +63,8 @@ function initTechnicsSwiper() {
   }
 }
 
+window.addEventListener('load', initTechnicsSwiper);
+window.addEventListener('resize', initTechnicsSwiper);
 // Инициализация при загрузке
 window.addEventListener('load', initSwiper);
 // И при изменении размера окна
@@ -232,8 +232,6 @@ function initPriceSwiper() {
   } else if (window.innerWidth >= 768 && priceSwiperInstance) {
     priceSwiperInstance.destroy(true, true);
     priceSwiperInstance = null;
-
-    // Сбросить стили, которые Swiper мог добавить
     const wrapper = document.querySelector('.price-container__wrapper');
     if (wrapper) {
       wrapper.style.transform = '';
@@ -248,3 +246,39 @@ function initPriceSwiper() {
 
 window.addEventListener('load', initPriceSwiper);
 window.addEventListener('resize', initPriceSwiper);
+
+document.addEventListener('DOMContentLoaded', function() {
+  // === Показать все для technics ===
+  const technicsBtn = document.querySelector('.technics-container__show-all-btn');
+  const technicsIcon = document.querySelector('.technics-container__show-all-icon');
+  const technicsSlider = document.querySelector('.technics-container__slider');
+  let technicsExpanded = false;
+
+  function updateTechnicsButton() {
+    if (technicsBtn) {
+      technicsBtn.textContent = technicsExpanded ? 'Скрыть' : 'Показать все';
+    }
+    if (technicsIcon) {
+      technicsIcon.src = technicsExpanded ? 'assets/icons/showall.svg' : 'assets/icons/icon.svg';
+      technicsIcon.alt = technicsExpanded ? 'Скрыть' : 'Показать все';
+    }
+  }
+
+  if (technicsBtn && technicsSlider) {
+    technicsBtn.addEventListener('click', function() {
+      technicsExpanded = !technicsExpanded;
+      if (technicsExpanded) {
+        technicsSlider.classList.add('show-extra');
+      } else {
+        technicsSlider.classList.remove('show-extra');
+      }
+      updateTechnicsButton();
+    });
+
+    window.addEventListener('resize', function() {
+      technicsExpanded = false;
+      technicsSlider.classList.remove('show-extra');
+      updateTechnicsButton();
+    });
+  }
+});

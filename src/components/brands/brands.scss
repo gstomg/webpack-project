@@ -55,6 +55,13 @@
         color: #7E7E82;
     }
 
+    &__show-all-btn{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.2px;
+    }
+
 
 @media (max-width:767.98px){
    &__header{
@@ -131,7 +138,7 @@
         padding-left: 32px;
         display: flex;
         flex-direction: row;
-        gap: 17.25px;
+        gap: 16px;
     }
 
     &__slider .swiper-wrapper {

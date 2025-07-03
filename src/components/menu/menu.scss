@@ -239,3 +239,24 @@
         display: none; /* Chrome/Safari */
     }
 }
+
+@media (max-width:359px){
+    .burger-wrapper__menu {
+        padding: 0 16px 0 16px;
+    }
+    .burger-wrapper__info{
+        gap: 8px;
+    }
+}
+
+@media (max-width:360px){
+    .burger-wrapper__menu {
+        padding: 0 16px 0 16px;
+    }
+    .burger-wrapper.active{
+        min-width: 360px;
+    }
+    .burger-wrapper__info{
+        gap: 8px;
+    }
+}
