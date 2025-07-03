@@ -331,6 +331,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const overlay = document.querySelector('.modal-phone__overlay');
   const closeModalBtns = document.querySelectorAll('.modal-phone__close-btn');
 
+  console.log(openModalBtns, modal, overlay, closeModalBtns); // Для отладки
+
   function openModal() {
     modal.classList.add('active');
     overlay.classList.add('active');

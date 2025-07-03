@@ -7,7 +7,7 @@
     min-height: 100vh;
     background: #fff;
     margin: 0;
-    z-index: 1001;
+    z-index: 3;
     display: flex;
     flex-direction: column;
     gap: 241px;
@@ -38,7 +38,7 @@
         top: 0;
         transform: translateX(-100%);
         transition: transform 0.3s;
-        z-index: 1001;
+        z-index: 5;
     }
     .burger-wrapper.active {
         transform: translateX(0);
@@ -244,7 +244,7 @@
 
 .menu-overlay {
     position: fixed;
-    z-index: 1000;
+    z-index: 4;
     left: 0;
     top: 0;
     width: 100vw;
