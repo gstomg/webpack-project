@@ -3,6 +3,10 @@
     flex-direction: column;
     gap: 24px;
 
+    &__show-all-btn:hover, &__action:hover{
+        opacity: .5;
+    }
+
      &__header{  
         background: linear-gradient(to right, rgba(248, 248, 248, 1), rgba(255, 255, 255, 1));
     }

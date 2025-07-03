@@ -11,6 +11,9 @@ $about-gap-desktop: 43px;
         font-size: 14px;
         letter-spacing: 0.2px;
     }
+    &__read-more-text:hover{
+        opacity: 0.5;
+    }
     &__read-more{
         display: flex;
         flex-direction: row;
