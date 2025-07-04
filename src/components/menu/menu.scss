@@ -12,15 +12,11 @@
     flex-direction: column;
     gap: 241px;
     padding: 18.73px 0 24px 0;
-}
 
-// --- Активное меню (открыто на планшете/мобилке) ---
-.burger-wrapper.active {
-    // transform: translateX(0); // только для мобилки
-}
 
-// --- Кнопка закрытия меню ---
-.burger-wrapper__button--close {
+
+
+&__button--close {
     display: block;
     top: 18px;
     right: 18px;
@@ -32,7 +28,7 @@
 
 // --- Планшет и мобилка: меню скрыто, overlay и кнопка закрытия видны, контент не сдвинут ---
 @media (max-width: 1119px) {
-    .burger-wrapper {
+    & {
         position: fixed;
         left: 0;
         top: 0;
@@ -51,16 +47,16 @@
 
 // --- Десктоп: меню всегда видно, overlay и кнопка закрытия скрыты, контент сдвинут ---
 @media (min-width: 1120px) {
-    .burger-wrapper {
+    & {
         transform: none;
         box-shadow: none;
     }
-    .burger-wrapper__button--close {
+    &__button--close {
         display: none !important;
     }
 }
 
-.burger-wrapper__menu{
+&__menu{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -68,7 +64,7 @@
     padding: 0 24px 0 24px;
 }
 
-.burger-wrapper__links a{
+&__links a{
     font-family: 'TT Lakes';
     font-weight: 500;
     font-size: 16px;
@@ -81,23 +77,23 @@
    
 }
 
-.burger-wrapper__links a:hover{
+&__links a:hover{
     color: rgba(126, 126, 130, 1);
 }
 
-.burger-wrapper__menu--left{
+&__menu--left{
     display: flex;
     flex-direction: row;
     gap: 16.73px;
 }
 
-.burger-wrapper__header{
+&__header{
     display: flex;
     flex-direction: column;
     gap: 46.27px;;
 }
 
-.burger-wrapper__links{
+&__links{
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -105,13 +101,13 @@
     padding: 0;
 }
 /**/
-.burger-wrapper__links a {
+&__links a {
     position: relative; /* для позиционирования полоски */
     padding-left: 24px; /* отступ для полоски */
 }
 
 /* полоска (изначально скрыта у всех, кроме первого элемента) */
-.burger-wrapper__highlight {
+&__highlight {
     position: absolute;
     left: 0;
     top: 50%;
@@ -121,53 +117,53 @@
 }
 
 /* у первого элемента полоска всегда видна */
-.burger-wrapper__links a:first-child .burger-wrapper__highlight {
+&__links a:first-child &__highlight {
     opacity: 1;
 }
 
 /* при наведении на любой элемент (кроме первого) показываем полоску */
-.burger-wrapper__links a:not(:first-child):hover .burger-wrapper__highlight {
+&__links a:not(:first-child):hover .burger-wrapper__highlight {
     opacity: 1;
 }
 
 
-.burger-wrapper__buttons{
+&__buttons{
     display: flex;
     flex-direction: row;
     gap: 16px;
 }
-.burger-wrapper__button img{
+&__button img{
     transition: transform 0.3s ease;
 }
-.burger-wrapper__button img:hover{
+&__button img:hover{
     transform: scale(1.1);
     opacity: 0.7;
 }
 
-.burger-wrapper__info{
+&__info{
     display: flex;
     flex-direction: column;
     gap: 40px;
     padding-left: 24px;
 }
-.burger-wrapper__contact{
+&__contact{
     display: flex;
     flex-direction: column;
 }
-.burger-wrapper__buttons {
+&__buttons {
     display: flex;
     flex-direction: row;
     gap: 16px;
 }
 
-.burger-wrapper__email {
+&__email {
     padding-top: 16px;
     font-family: 'TT Lakes';
     font-weight: 500;
     font-size: 16px;
 }
 
-.burger-wrapper__phone{
+&__phone{
     padding-top: 12px;
     font-family: 'TT Lakes';
     font-weight: bold;
@@ -176,7 +172,7 @@
     letter-spacing: -0.6px;
 }
 
-.burger-wrapper__languages button{
+&__languages button{
     font-family: 'TT Lakes';
     font-weight: 500;
     line-height: 24px;
@@ -184,62 +180,55 @@
     font-size: 16px;
 }
 
-.burger-wrapper__lang.burger-wrapper__lang--active {
+&__lang.burger-wrapper__lang--active {
     color: rgba(126, 126, 130, 1);
 }
-.burger-wrapper__link.burger-wrapper__link--active {
+&__link.burger-wrapper__link--active {
     color: rgba(126, 126, 130, 1);
 }
 
 @media (min-width: 1120px) {
-    .burger-wrapper {
+    & {
         overflow-y: auto;
         scrollbar-width: none; /* Firefox */
         -ms-overflow-style: none; /* IE 10+ */
     }
-    .burger-wrapper::-webkit-scrollbar {
+    &::-webkit-scrollbar {
         display: none; /* Chrome/Safari */
     }
-    .burger-wrapper__menu--left{
+    &__menu--left{
         gap: 0px;
     }
 }
 
 @media (min-width:360px)and(max-width:767.99px){
-    .burger-wrapper__menu {
+    &__menu {
         padding: 0 24px 0 24px;
     }
-    .burger-wrapper__info{
+    &__info{
         gap: 8px;
     }
     .burger-wrapper.active{
         min-width: 360px;
     }
-    .burger-wrapper{
+    & {
         gap: 32px;
     }
 }
 
 @media (max-width:359px){
-    .burger-wrapper__menu {
+    &__menu {
         padding: 0 16px 0 16px;
     }
     .burger-wrapper.active{
         min-width: auto;
     }
-    .burger-wrapper__info{
+    &__info{
         gap: 8px;
     }
-    .burger-wrapper{
+    &{
         gap: 32px;
     }
-}
-@media (max-width:360px){
-
-}
-
-@media (min-width:1440px){
-    
 }
 
 .menu-overlay {
@@ -259,3 +248,4 @@
     opacity: 1;
     pointer-events: auto;
   }
+}

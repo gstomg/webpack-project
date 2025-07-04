@@ -218,17 +218,18 @@
         display: flex;
     }
   }
-}
+
 
 @media (min-width:1440px){
-    .brands-container__slider{
+    &__slider{
         padding: 0px 32px;
     }
-    .brands-container__slider .swiper-wrapper{
+    &__slider .swiper-wrapper{
         gap: 16px 32px;
     }
   }
 
-  .brands-container__action:hover{
+  &__action:hover{
     opacity: 0.5;
   }
+}

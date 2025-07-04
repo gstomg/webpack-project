@@ -7,10 +7,10 @@
     color: rgba(126, 126, 130, 1);
     gap: 16px;
     padding-top: 16px;
-}
+
 
 @media (min-width: 768px) {
-  .footer-container {
+  & {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
@@ -66,9 +66,16 @@
   .footer__disclaimer{
     padding-bottom: 19px;
   }
-  .footer-container{
+  & {
     padding-top: 36px;
   }
+  .footer__disclamer{
+    width: 312px;
+    padding-bottom: 19px;
+    }
+    .footer__dev {
+        width: auto;
+    }
 }
 
 @media (min-width: 768px)and(max-width: 1119px){
@@ -76,4 +83,5 @@
     display: flex;
     align-self: flex-start;
   }
+}
 }
