@@ -247,20 +247,23 @@
   }
   
   .modal-feedback__close-btn {
-    position: absolute;
-    top: 32px;
-    left: -20px;
-    z-index: 1010;
+    display: none;
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    z-index: 9999;
     background: #ff3e79;
     border: none;
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .modal-feedback__close-btn.active {
+    display: flex;
   }
   
   .modal-feedback__content {
@@ -411,6 +414,9 @@
     .modal-feedback__close-btn{
         position: static;
     }
+    .modal-feedback__highlight{
+        top: 65px;
+    }
 }
 
 @media (min-width: 1440px) {
@@ -419,5 +425,13 @@
     }
     .modal-feedback__content{
         padding: 0 32px;
+    }
+    .modal-feedback__close-btn{
+        position: fixed;
+        right: 473px;
+        top: 32px;
+    }
+    .modal-feedback__highlight {
+    top: 40px;
     }
 }

@@ -227,6 +227,7 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.addEventListener('click', function() {
       document.getElementById('modal-feedback').classList.add('active');
       document.querySelector('.modal-feedback__overlay').classList.add('active');
+      document.querySelector('.modal-feedback__close-btn').classList.add('active');
       document.body.style.overflow = 'hidden';
     });
   });
@@ -234,6 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
     el.addEventListener('click', function() {
       document.getElementById('modal-feedback').classList.remove('active');
       document.querySelector('.modal-feedback__overlay').classList.remove('active');
+      document.querySelector('.modal-feedback__close-btn').classList.remove('active');
       document.body.style.overflow = '';
     });
   });
