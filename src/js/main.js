@@ -76,6 +76,7 @@ window.addEventListener('load', initTechnicsSwiper);
 window.addEventListener('resize', initTechnicsSwiper);
 
 document.addEventListener('DOMContentLoaded', function() {
+  // === Swiper для brands ===
   const btn = document.querySelector('.brands-container__show-all-btn');
   const icon = document.querySelector('.brands-container__show-all-icon');
   const swiper = document.querySelector('.brands-container__slider');
@@ -97,124 +98,146 @@ document.addEventListener('DOMContentLoaded', function() {
     updateButton();
   });
 
-  // cбросить состояние при изменении ширины окна
   window.addEventListener('resize', function() {
     expanded = false;
     swiper.classList.remove('show-extra');
     updateButton();
   });
-});
 
-//about кнопка читать далее
-
-document.addEventListener('DOMContentLoaded', function() {
+  // === about кнопка читать далее ===
   const readMoreBtn = document.querySelector('.about__read-more-text');
   const secondParagraph = document.querySelector('.about__paragraph_type_second');
   const thirdParagraph = document.querySelector('.about__paragraph_type_third');
   const expandIcon = document.querySelector('.about__read-more img');
 
   function resetState() {
-      if (secondParagraph) secondParagraph.classList.remove('active');
-      if (thirdParagraph) thirdParagraph.classList.remove('active');
-      if (readMoreBtn) {
-          readMoreBtn.textContent = 'Читать далее';
-          if (expandIcon) expandIcon.style.transform = 'rotate(0deg)';
-      }
+    if (secondParagraph) secondParagraph.classList.remove('active');
+    if (thirdParagraph) thirdParagraph.classList.remove('active');
+    if (readMoreBtn) {
+      readMoreBtn.textContent = 'Читать далее';
+      if (expandIcon) expandIcon.style.transform = 'rotate(0deg)';
+    }
   }
 
   function updateVisibility() {
-      const width = window.innerWidth;
-      resetState();
-      if (width >= 1120) {
-          // на десктопе: всегда видно первый и второй параграф, третий скрыт, кнопка видна
-          if (readMoreBtn) readMoreBtn.parentElement.style.display = '';
-      } else {
-          // на планшете и мобилке: кнопка видна
-          if (readMoreBtn) readMoreBtn.parentElement.style.display = '';
-      }
+    const width = window.innerWidth;
+    resetState();
+    if (width >= 1120) {
+      if (readMoreBtn) readMoreBtn.parentElement.style.display = '';
+    } else {
+      if (readMoreBtn) readMoreBtn.parentElement.style.display = '';
+    }
   }
 
   if (readMoreBtn) {
-      readMoreBtn.style.cursor = 'pointer';
-      readMoreBtn.addEventListener('click', function() {
-          const width = window.innerWidth;
-          const isExpanded = readMoreBtn.textContent === 'Свернуть';
+    readMoreBtn.style.cursor = 'pointer';
+    readMoreBtn.addEventListener('click', function() {
+      const width = window.innerWidth;
+      const isExpanded = readMoreBtn.textContent === 'Свернуть';
 
-          if (width < 768) {
-              // мобильные: показать/скрыть второй и третий параграф
-              if (secondParagraph) secondParagraph.classList.toggle('active');
-              if (thirdParagraph) thirdParagraph.classList.toggle('active');
-          } else {
-              // планшет и десктоп: показать/скрыть только третий параграф
-              if (thirdParagraph) thirdParagraph.classList.toggle('active');
-              if (width >= 768 && width <= 1119) {
-                  // на планшете также раскрываем второй параграф полностью
-                  if (secondParagraph) secondParagraph.classList.toggle('active');
-              }
-          }
+      if (width < 768) {
+        if (secondParagraph) secondParagraph.classList.toggle('active');
+        if (thirdParagraph) thirdParagraph.classList.toggle('active');
+      } else {
+        if (thirdParagraph) thirdParagraph.classList.toggle('active');
+        if (width >= 768 && width <= 1119) {
+          if (secondParagraph) secondParagraph.classList.toggle('active');
+        }
+      }
 
-          // меняем текст и иконку
-          const anyActive = (width < 768)
-              ? (secondParagraph && secondParagraph.classList.contains('active')) || (thirdParagraph && thirdParagraph.classList.contains('active'))
-              : thirdParagraph && thirdParagraph.classList.contains('active');
+      const anyActive = (width < 768)
+        ? (secondParagraph && secondParagraph.classList.contains('active')) || (thirdParagraph && thirdParagraph.classList.contains('active'))
+        : thirdParagraph && thirdParagraph.classList.contains('active');
 
-          readMoreBtn.textContent = anyActive ? 'Свернуть' : 'Читать далее';
-          if (expandIcon) expandIcon.style.transform = anyActive ? 'rotate(180deg)' : 'rotate(0deg)';
-      });
+      readMoreBtn.textContent = anyActive ? 'Свернуть' : 'Читать далее';
+      if (expandIcon) expandIcon.style.transform = anyActive ? 'rotate(180deg)' : 'rotate(0deg)';
+    });
   }
 
   window.addEventListener('resize', updateVisibility);
   updateVisibility();
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-    const burgerBtn = document.querySelector('.burger-btn'); // Кнопка открытия меню
-    const burgerMenu = document.querySelector('.burger-wrapper'); // Само меню
-    const closeBtn = document.querySelector('.burger-wrapper__button--close'); // Кнопка закрытия меню
-    const menuOverlay = document.querySelector('.menu-overlay'); // Overlay для блюра
+  // === Бургер-меню ===
+  const burgerBtn = document.querySelector('.burger-btn');
+  const burgerMenu = document.querySelector('.burger-wrapper');
+  const closeBtn = document.querySelector('.burger-wrapper__button--close');
+  const menuOverlay = document.querySelector('.menu-overlay');
 
-    // Открыть меню (только на планшете/мобилке)
-    function openMenu() {
-        if (window.innerWidth < 1120) {
-            burgerMenu.classList.add('active');
-            if (menuOverlay) menuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+  function openMenu() {
+    if (window.innerWidth < 1120) {
+      burgerMenu.classList.add('active');
+      if (menuOverlay) {
+        menuOverlay.classList.add('active');
+      }
+      document.body.style.overflow = 'hidden';
     }
+  }
 
-    // Закрыть меню (только на планшете/мобилке)
-    function closeMenu() {
-        if (window.innerWidth < 1120) {
-            burgerMenu.classList.remove('active');
-            if (menuOverlay) menuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
+  function closeMenu() {
+    if (window.innerWidth < 1120) {
+      burgerMenu.classList.remove('active');
+      if (menuOverlay) {
+        menuOverlay.classList.remove('active');
+      }
+      document.body.style.overflow = '';
     }
+  }
 
-    // Открытие по бургеру
-    if (burgerBtn) burgerBtn.addEventListener('click', openMenu);
+  if (burgerBtn) burgerBtn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+  window.addEventListener('resize', function() {
+    if (window.innerWidth >= 1120) {
+      burgerMenu.classList.remove('active');
+      if (menuOverlay) menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  });
 
-    // Закрытие по кнопке "Назад"/крестику
-    if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  // === Модалка звонка ===
+  const openModalBtns = document.querySelectorAll('.call-btn');
+  const modal = document.getElementById('modal-callback');
+  const overlay = document.querySelector('.modal-phone__overlay');
+  const closeModalBtns = document.querySelectorAll('.modal-phone__close-btn');
 
-    // Закрытие по overlay
-    if (menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+  function openModal() {
+    modal.classList.add('active');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
 
-    // Закрытие по ESC
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeMenu();
+  function closeModal() {
+    modal.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  openModalBtns.forEach(btn => btn.addEventListener('click', openModal));
+  closeModalBtns.forEach(btn => btn.addEventListener('click', closeModal));
+  if (overlay) overlay.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // === Модалка обратной связи ===
+  document.querySelectorAll('.feedback-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      document.getElementById('modal-feedback').classList.add('active');
+      document.querySelector('.modal-feedback__overlay').classList.add('active');
+      document.body.style.overflow = 'hidden';
     });
-
-    // При ресайзе: если десктоп — меню всегда открыто, overlay скрыт, скролл разрешён
-    window.addEventListener('resize', function() {
-        if (window.innerWidth >= 1120) {
-            burgerMenu.classList.remove('active');
-            if (menuOverlay) menuOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
+  });
+  document.querySelectorAll('.modal-feedback__close-btn, .modal-feedback__overlay').forEach(el => {
+    el.addEventListener('click', function() {
+      document.getElementById('modal-feedback').classList.remove('active');
+      document.querySelector('.modal-feedback__overlay').classList.remove('active');
+      document.body.style.overflow = '';
     });
+  });
 });
-
 
 let priceSwiperInstance = null;
 
@@ -323,32 +346,4 @@ document.addEventListener('DOMContentLoaded', function() {
   } else if (technicsBtn) {
     technicsBtn.style.display = 'none';
   }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-  const openModalBtns = document.querySelectorAll('.call-btn');
-  const modal = document.getElementById('modal-callback');
-  const overlay = document.querySelector('.modal-phone__overlay');
-  const closeModalBtns = document.querySelectorAll('.modal-phone__close-btn');
-
-  console.log(openModalBtns, modal, overlay, closeModalBtns); // Для отладки
-
-  function openModal() {
-    modal.classList.add('active');
-    overlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    modal.classList.remove('active');
-    overlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  openModalBtns.forEach(btn => btn.addEventListener('click', openModal));
-  closeModalBtns.forEach(btn => btn.addEventListener('click', closeModal));
-  if (overlay) overlay.addEventListener('click', closeModal);
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModal();
-  });
 });

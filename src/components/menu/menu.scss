@@ -12,7 +12,7 @@
     flex-direction: column;
     gap: 241px;
     padding: 18.73px 0 24px 0;
-
+    
 
 
 
@@ -36,7 +36,7 @@
         transition: transform 0.3s;
         z-index: 5;
     }
-    .burger-wrapper.active {
+    &.active {
         transform: translateX(0);
         box-shadow: 16px 0px 52px rgba(14, 24, 80, 0.2);
     }
@@ -231,6 +231,8 @@
     }
 }
 
+}
+
 .menu-overlay {
     position: fixed;
     z-index: 4;
@@ -238,14 +240,21 @@
     top: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(255,255,255,0.7); // или rgba(0,0,0,0.3) для тёмного блюра
-    backdrop-filter: blur(10px); // блюр
+    background: rgba(255,255,255,0.9);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s;
-  }
-  .menu-overlay.active {
+    transition: opacity 0.3s ease;
+}
+
+/* Fallback для браузеров без поддержки backdrop-filter */
+@supports not (backdrop-filter: blur(10px)) {
+    .menu-overlay {
+        background: rgba(255,255,255,0.95);
+    }
+}
+.menu-overlay.active {
     opacity: 1;
     pointer-events: auto;
-  }
 }

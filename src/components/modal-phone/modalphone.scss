@@ -171,6 +171,9 @@
         border-radius: 16px;
         gap: 14px;
     }
+    .modal-feedback__input{
+        height: 118px;
+    }
 }
 @media (min-width: 1120px) {
     & {
@@ -191,6 +194,7 @@
      &__content{
         padding: 0 32px;
     }
+    
 }
 
     & {
@@ -207,5 +211,213 @@
         top: 24px;
         left: 16px;
         z-index: 2;
+        
+    }
+}
+
+.modal-feedback__overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    z-index: 1000;
+  }
+  .modal-feedback__overlay.active {
+    display: block;
+  }
+  
+  .modal-feedback {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 348px;
+    max-width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: 1001;
+    box-shadow: -4px 0 32px rgba(0,0,0,0.15);
+    overflow-y: auto;
+    transition: transform 0.3s;
+    transform: translateX(100%);
+  }
+  .modal-feedback.active {
+    display: block;
+    transform: translateX(0);
+  }
+  
+  .modal-feedback__close-btn {
+    position: absolute;
+    top: 32px;
+    left: -20px;
+    z-index: 1010;
+    background: #ff3e79;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  
+  .modal-feedback__content {
+    padding: 40px 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  .modal-feedback__title {
+    font-family: 'TT Lakes', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.6px;
+    color: #1B1C21;
+    padding-top: 40px;
+    margin-left: 20px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .modal-feedback__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 0;
+  }
+  
+  .modal-feedback__input {
+    padding: 12px 16px;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'TT Lakes', sans-serif;
+    background: #fff;
+    color: #1B1C21;
+    resize: none;
+  }
+  
+  .modal-feedback__privacy {
+    font-size: 14px;
+    color: #B5B6BC;
+    margin-bottom: 0;
+    line-height: 1.4;
+  }
+  .modal-feedback__privacy-link {
+    color: #FF3E79;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  
+  .modal-feedback__submit {
+    align-self: flex-end;
+    margin-top: 8px;
+   /* padding: 10px 32px;*/
+    background: #ff3e79;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    font-family: 'TT Lakes', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s;
+    align-items: center;
+    font-weight: 700;
+    height: 32px;
+    justify-content: end;
+    justify-self: end;
+    letter-spacing: -0.15px;
+    line-height: 24px;
+    width: 136px;
+  }
+  .modal-feedback__submit:hover {
+    background: #e0356a;
+  }
+  
+  @media(max-width: 320px){
+    .modal-feedback {
+      width: 100vw;
+      min-width: 0;
+      border-radius: 0;
+    }
+    .modal-feedback__content {
+      padding: 24px 16px 16px 16px;
+    }
+    .modal-feedback__close-btn {
+        position: static;
+     /* left: 4px;
+      top: 12px;
+      width: 32px;
+      height: 32px;*/
+    }
+  }
+
+  .modal-feedback__highlight {
+    position: absolute;
+    left: 0;
+    top: 96px;
+    width: 4px;
+    height: 40px;
+    background: rgba(65, 246, 215, 1);
+    border-radius: 0 4px 4px 0;
+    z-index: 1;
+  }
+
+  @media (max-width: 767.98px) {
+    .modal-feedback__highlight {
+      top: 96px;
+      height: 40px;
+    }
+    .modal-feedback__title {
+      margin-left: 0px;
+    }
+  }
+
+  .modal-feedback__title::before {
+    display: none !important;
+  }
+
+  .modal-feedback__form textarea{
+    height: 118px;
+  }
+
+ 
+  .modal-feedback__line{
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+  }
+
+        .modal-feedback__header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+}
+
+@media(min-width:320px) and (max-width:1440px){
+    .modal-feedback__content{
+        padding: 24px 16px 16px 16px;
+    }
+    .modal-feedback__close-btn{
+        position: static;
+    }
+}
+
+@media (min-width: 1440px) {
+    .modal-feedback{
+        width: 440px;
+    }
+    .modal-feedback__content{
+        padding: 0 32px;
     }
 }

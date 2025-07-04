@@ -12,8 +12,8 @@
     <header class="header">
         <nav class="header__nav">
             <div class="header__nav-left">
-                <button class="header__button">
-                    <img src="assets/icons/burger.svg" alt="Открыть меню" class="burger-btn">
+                <button class="header__button burger-btn">
+                    <img src="assets/icons/burger.svg" alt="Открыть меню" >
                 </button>
                 <img src="assets/icons/devider.svg" alt="" class="header__divider-hiddenmobile">
                 <a href="index.html"><img src="assets/icons/group.svg" alt="Логотип CPS" class="header__left_logo"></a>
@@ -22,7 +22,7 @@
                 <button class="header__button header__button--hidden call-btn">
                    <img src="assets/icons/call.svg" alt="Заказать звонок">
                 </button>
-                <button class="header__button header__button--hidden">
+                <button class="header__button header__button--hidden feedback-btn">
                     <img src="assets/icons/chat.svg" alt="Написать нам">
                 </button>
                 <button class="header__button header__button--hidden">
@@ -95,7 +95,7 @@
                         <button class="burger-wrapper__button call-btn">
                             <img src="assets/icons/call.svg" alt="Позвонить Нам">
                         </button>
-                        <button class="burger-wrapper__button">
+                        <button class="burger-wrapper__button feedback-btn">
                             <img src="assets/icons/chat.svg" alt="Написать Нам">
                         </button>
                         <button class="burger-wrapper__button">
@@ -500,6 +500,34 @@
                 </form>
             </div>
         </div>
+    </div>
+    <div class="modal-feedback__overlay"></div>
+    <div class="modal-feedback" id="modal-feedback">
+      
+      <div class="modal-feedback__content">
+        <span class="modal-feedback__highlight"></span>
+        <button class="modal-feedback__close-btn" data-modal-close>
+          <img src="assets/icons/close.svg" alt="Закрыть">
+        </button>
+        <h2 class="modal-feedback__title">Обратная связь</h2>
+      
+        <form class="modal-feedback__form">
+          <input type="text" class="modal-feedback__input" placeholder="Имя" required>
+          <input type="tel" class="modal-feedback__input" placeholder="Телефон" required>
+          <input type="email" class="modal-feedback__input" placeholder="Электронная почта" required>
+          <textarea class="modal-feedback__input" placeholder="Сообщение" required></textarea>
+          <div class="modal-feedback__privacy">
+            Нажимая "отправить", вы даете согласие на
+            <span class="modal-feedback__privacy-link">обработку персональных данных</span>
+            и соглашаетесь с нашей
+            <span class="modal-feedback__privacy-link">политикой конфиденциальности</span>
+          </div>
+          <button type="submit" class="modal-feedback__submit">
+            ОТПРАВИТЬ
+            <img src="assets/icons/goside.svg" alt="">
+          </button>
+        </form>
+      </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
