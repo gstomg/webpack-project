@@ -502,11 +502,14 @@
         </div>
     </div>
     <div class="modal-feedback__overlay"></div>
-    <button class="modal-feedback__close-btn" data-modal-close>
+    <button class="modal-feedback__close-btn modal-feedback__close-btn--fixed" data-modal-close>
       <img src="assets/icons/close.svg" alt="Закрыть">
     </button>
     <div class="modal-feedback" id="modal-feedback">
       <div class="modal-feedback__content">
+        <button class="modal-feedback__close-btn modal-feedback__close-btn--inner" data-modal-close>
+          <img src="assets/icons/close.svg" alt="Закрыть">
+        </button>
         <span class="modal-feedback__highlight"></span>
         <h2 class="modal-feedback__title">Обратная связь</h2>
         <form class="modal-feedback__form">
