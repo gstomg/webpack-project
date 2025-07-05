@@ -649,3 +649,10 @@
 .modal-phone__input::placeholder {
     color: rgba(181, 182, 188, 1);
 }
+
+.modal-phone__close-btn.modal-phone__close-btn--fixed.active:hover{
+    opacity: 0.6;
+}
+.modal-feedback__close-btn.modal-feedback__close-btn--fixed.active:hover{
+    opacity: 0.6;
+}
