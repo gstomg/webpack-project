@@ -202,16 +202,19 @@ document.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('modal-callback');
   const overlay = document.querySelector('.modal-phone__overlay');
   const closeModalBtns = document.querySelectorAll('.modal-phone__close-btn');
+  const phoneFixedCloseBtn = document.querySelector('.modal-phone__close-btn--fixed');
 
   function openModal() {
     modal.classList.add('active');
     overlay.classList.add('active');
+    if (phoneFixedCloseBtn) phoneFixedCloseBtn.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
   function closeModal() {
     modal.classList.remove('active');
     overlay.classList.remove('active');
+    if (phoneFixedCloseBtn) phoneFixedCloseBtn.classList.remove('active');
     document.body.style.overflow = '';
   }
 
@@ -223,11 +226,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // === Модалка обратной связи ===
+  const feedbackFixedCloseBtn = document.querySelector('.modal-feedback__close-btn--fixed');
   document.querySelectorAll('.feedback-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       document.getElementById('modal-feedback').classList.add('active');
       document.querySelector('.modal-feedback__overlay').classList.add('active');
-      document.querySelector('.modal-feedback__close-btn').classList.add('active');
+      if (feedbackFixedCloseBtn) feedbackFixedCloseBtn.classList.add('active');
       document.body.style.overflow = 'hidden';
     });
   });
@@ -235,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
     el.addEventListener('click', function() {
       document.getElementById('modal-feedback').classList.remove('active');
       document.querySelector('.modal-feedback__overlay').classList.remove('active');
-      document.querySelector('.modal-feedback__close-btn').classList.remove('active');
+      if (feedbackFixedCloseBtn) feedbackFixedCloseBtn.classList.remove('active');
       document.body.style.overflow = '';
     });
   });

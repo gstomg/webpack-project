@@ -478,13 +478,18 @@
         </main>
     </div>
     <div class="modal-phone__overlay"></div>
+    <button class="modal-phone__close-btn modal-phone__close-btn--fixed" data-modal-close>
+        <img src="assets/icons/close.svg" alt="Закрыть">
+    </button>
     <div class="modal-phone" id="modal-callback">
         <div class="modal-phone__content">
             <div class="modal-phone__header">
-                <button class="modal-phone__close-btn" data-modal-close>
-                    <img src="assets/icons/close.svg" alt="">
+                <button class="modal-phone__close-btn modal-phone__close-btn--inner" data-modal-close>
+                    <img src="assets/icons/close.svg" alt="Закрыть">
                 </button>
-                <h2 class="modal-phone__title">Заказать звонок</h2>
+                <h2 class="modal-phone__title">
+                    <span class="modal-phone__highlight"></span>
+                    Заказать звонок</h2>
             </div>
             <div class="modal-phone__body">
                 <form action="" class="modal-phone__form">
@@ -503,32 +508,35 @@
     </div>
     <div class="modal-feedback__overlay"></div>
     <button class="modal-feedback__close-btn modal-feedback__close-btn--fixed" data-modal-close>
-      <img src="assets/icons/close.svg" alt="Закрыть">
+        <img src="assets/icons/close.svg" alt="Закрыть">
     </button>
     <div class="modal-feedback" id="modal-feedback">
-      <div class="modal-feedback__content">
-        <button class="modal-feedback__close-btn modal-feedback__close-btn--inner" data-modal-close>
-          <img src="assets/icons/close.svg" alt="Закрыть">
-        </button>
-        <span class="modal-feedback__highlight"></span>
-        <h2 class="modal-feedback__title">Обратная связь</h2>
-        <form class="modal-feedback__form">
-          <input type="text" class="modal-feedback__input" placeholder="Имя" required>
-          <input type="tel" class="modal-feedback__input" placeholder="Телефон" required>
-          <input type="email" class="modal-feedback__input" placeholder="Электронная почта" required>
-          <textarea class="modal-feedback__input" placeholder="Сообщение" required></textarea>
-          <div class="modal-feedback__privacy">
-            Нажимая "отправить", вы даете согласие на
-            <span class="modal-feedback__privacy-link">обработку персональных данных</span>
-            и соглашаетесь с нашей
-            <span class="modal-feedback__privacy-link">политикой конфиденциальности</span>
-          </div>
-          <button type="submit" class="modal-feedback__submit">
-            ОТПРАВИТЬ
-            <img src="assets/icons/goside.svg" alt="">
-          </button>
-        </form>
-      </div>
+        <div class="modal-feedback__content">
+            <div class="modal-feedback__header">
+                <button class="modal-feedback__close-btn modal-feedback__close-btn--inner" data-modal-close>
+                    <img src="assets/icons/close.svg" alt="Закрыть">
+                </button>
+                <h2 class="modal-feedback__title">
+                    <span class="modal-feedback__highlight"></span>
+                    Обратная связь</h2>
+            </div>
+            <form class="modal-feedback__form">
+                <input type="text" class="modal-feedback__input" placeholder="Имя" required>
+                <input type="tel" class="modal-feedback__input" placeholder="Телефон" required>
+                <input type="email" class="modal-feedback__input" placeholder="Электронная почта" required>
+                <textarea class="modal-feedback__input" placeholder="Сообщение" required></textarea>
+                <div class="modal-feedback__privacy">
+                    Нажимая "отправить", вы даете согласие на
+                    <span class="modal-feedback__privacy-link">обработку персональных данных</span>
+                    и соглашаетесь с нашей
+                    <span class="modal-feedback__privacy-link">политикой конфиденциальности</span>
+                </div>
+                <button type="submit" class="modal-feedback__submit">
+                    ОТПРАВИТЬ
+                    <img src="assets/icons/goside.svg" alt="">
+                </button>
+            </form>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </body>
